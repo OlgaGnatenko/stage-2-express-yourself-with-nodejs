@@ -3,7 +3,8 @@ import { callApi } from "../helpers/apiHelper";
 class FightersService {
   async getFighters() {
     try {
-      const endpoint = "fighters.json";
+      // const endpoint = "fighters.json";
+      const endpoint = "user/";      
       const apiResult = await callApi(endpoint, "GET");
 
       return JSON.parse(atob(apiResult.content));

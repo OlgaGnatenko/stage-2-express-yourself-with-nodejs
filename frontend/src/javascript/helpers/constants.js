@@ -4,5 +4,6 @@ export default {
   FIGHT: "Fight",
   DRAW: "Draw",
   NEXT_ROUND: "Next Round",
-  UPDATE: "Update"
+  UPDATE: "Update",
+  API_URL: "http://fighters-api-server.herokuapp.com/"
 };
