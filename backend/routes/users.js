@@ -5,7 +5,8 @@ const {
   getAllUsers,
   getUserById,
   addUser,
-  updateUser
+  updateUser,
+  deleteUser
 } = require("../services/user.service");
 
 router.get("/", function(req, res) {
@@ -27,20 +28,30 @@ router.get("/:id", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  const user = addUser(req.body);
-  if (user) {
-    res.status(201).send(user);
-  } else {
-    res.status(500).send("Error: cannot add user");
+  const result = addUser(req.body);
+  if (result.ok) {
+    res.status(201).send(result.data);
   }
+  res.status(400).send(`Cannot add user: ${result.error}`);
 });
 
-router.put("/", function(req, res) {
-  const result = updateUser(req.body);
+router.put("/:id", function(req, res) {
+  const result = updateUser(req.params.id, req.body);
+
   if (result.ok) {
     res.status(200).send(result.data);
+    return;
   }
-  res.status(400).send(result.error);
+  res.status(400).send(`Cannot update user: ${result.error}`);
+});
+
+router.delete("/:id", function(req, res) {
+  const result = deleteUser(req.params.id);
+  if (result.ok) {
+    res.status(200).send(result.data);
+    return;
+  }
+  res.status(400).send(`Cannot delete user: ${result.error}`);
 });
 
 module.exports = router;

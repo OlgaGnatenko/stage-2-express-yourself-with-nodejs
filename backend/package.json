@@ -9,6 +9,10 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "sanitize": "^2.1.0"
+  },
+  "devDependencies": {
+    "valid-url": "^1.0.9"
   }
 }
