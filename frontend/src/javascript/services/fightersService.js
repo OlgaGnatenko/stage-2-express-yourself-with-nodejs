@@ -42,6 +42,17 @@ class FightersService {
       throw error;
     }
   }
+
+  async postFight(fightResult) {
+    try {
+      const endpoint = "fight/";
+      const body = JSON.stringify(fightResult);
+      const apiResult = await callApi(endpoint, "POST", body);
+      return apiResult;
+    } catch (error) {
+      throw error;
+    }
+  }  
 }
 
 export const fightersService = new FightersService();

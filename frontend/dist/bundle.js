@@ -1368,7 +1368,6 @@ class FighterDetailsView extends _view__WEBPACK_IMPORTED_MODULE_0__["default"] {
     };
     this.fightersMap.set(this.fighter._id, this.fighter);
     const result = await _services_fightersService__WEBPACK_IMPORTED_MODULE_2__["fightersService"].updateFighterDetailsOnServer(this.fighter._id, this.fighter);
-    console.log("Updated fighter on server", result);
     this.closeModal();
   }
 

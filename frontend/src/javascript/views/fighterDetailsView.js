@@ -53,7 +53,6 @@ class FighterDetailsView extends View {
       this.fighter._id,
       this.fighter
     );
-    console.log("Updated fighter on server", result);
     this.closeModal();
   }
 

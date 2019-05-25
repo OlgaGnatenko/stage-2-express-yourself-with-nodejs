@@ -1,4 +1,5 @@
 import Fighter from "./fighter";
+import { fightersService } from "../services/fightersService";
 
 class Fight {
   fighter1;
@@ -6,6 +7,7 @@ class Fight {
   fightRound;
   gameOver;
   winner;
+  fightResult;
 
   constructor(fighter1, fighter2) {
     this.fighter1 = new Fighter(fighter1);
@@ -13,9 +15,16 @@ class Fight {
     this.fightRound = 0;
     this.gameOver = false;
     this.winner = null;
+    this.fightResult = {
+      fighters: {
+        1: Object.assign({}, fighter1),
+        2: Object.assign({}, fighter2)
+      },
+      winner: {}
+    }
   }
 
-  startNextRound() {
+  async startNextRound() {
     if (this.gameOver) {
       return;
     }
@@ -36,7 +45,7 @@ class Fight {
     this.gameOver = true;
 
     if (!this.fighter1.alive && !this.fighter2.alive) {
-      return; // game ends in a draw
+      this.winner = null; // game ends in a draw
     }
 
     if (this.fighter1.alive) {
@@ -44,12 +53,18 @@ class Fight {
         fighter: this.fighter1,
         order: 1
       };
-    } else {
+    }
+
+    if (this.fighter2.alive) {
       this.winner = {
         fighter: this.fighter2,
         order: 2
       };
     }
+
+    this.fightResult.winner = this.winner; 
+
+    const fightPostResult = await fightersService.postFight(this.fightResult);
   }
 }
 
