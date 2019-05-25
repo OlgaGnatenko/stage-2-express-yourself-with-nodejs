@@ -1,6 +1,6 @@
 ## How to
 
-#### How to start the code
+#### How to start backend code
 
 1. `npm i`
 2. `npm start`

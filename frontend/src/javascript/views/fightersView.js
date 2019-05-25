@@ -25,7 +25,13 @@ class FightersView extends View {
       tagName: "div",
       className: "fighters"
     });
-    this.element.append(...fighterElements);
+
+    const fightersInternalContainer = this.createElement({
+      tagName: "div",
+      className: "fighters-internal-container"
+    });
+    fightersInternalContainer.append(...fighterElements);
+    this.element.append(fightersInternalContainer);
   }
 
   async handleFighterClick(event, fighter) {

@@ -4,7 +4,6 @@
 import APP_CONSTANTS from "./constants";
 
 function callApi(endpoint, method) {
-  // const url = API_URL + endpoint;
   const url = APP_CONSTANTS.API_URL + endpoint;
 
   const options = {
@@ -13,7 +12,6 @@ function callApi(endpoint, method) {
 
   return fetch(url, options)
     .then(response => {
-      console.log("FETCH RESPONSE", url, options, response);
       if (response.ok) {
         return response.json();
       } else {

@@ -1,11 +1,8 @@
-# stage-2-es6-for-everyone
+## How to
 
-## Instalation
+#### How to start frontend code
 
-`npm install`
-
-`npm run build`
-
-`npm run start`
-
-open http://localhost:8080/
+1. `npm i`
+2. `npm run build`
+2. `npm run start`
+3. Open [localhost:3000](http://localhost:8080)
