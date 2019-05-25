@@ -63,8 +63,8 @@ class Fight {
     }
 
     this.fightResult.winner = this.winner; 
-
-    const fightPostResult = await fightersService.postFight(this.fightResult);
+    this.fightResult.dateTime = Date.now();
+    await fightersService.postFight(this.fightResult);
   }
 }
 

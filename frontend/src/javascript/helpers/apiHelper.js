@@ -4,7 +4,7 @@
 import APP_CONSTANTS from "./constants";
 
 function callApi(endpoint, method, body) {
-  const url = APP_CONSTANTS.API_URL + endpoint;
+  const url = APP_CONSTANTS.LOCAL_API_URL + endpoint;
   const headers = new Headers();
   headers.set("Content-type", "application/json");
 

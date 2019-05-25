@@ -10,16 +10,19 @@ const getAllFights = () => {
 
 const addFight = newFight => {
   let ok = false;
-  const { fighters, winner } = newFight;
-  if (!(fighters && winner)) {
+  const { fighters, winner, dateTime } = newFight;
+  if (!(fighters && winner && dateTime)) {
     return {
       ok,
       error: "Incorrect data format"
     };
   }
+  const _id = fights.length + 1;
   const fight = {
+    _id,
     fighters,
-    winner
+    winner,
+    dateTime
   };
   fights.push(fight);
   return {
