@@ -1,5 +1,6 @@
 import View from "./view";
 import APP_CONSTANTS from "../helpers/constants";
+import { fightersService } from "../services/fightersService";
 
 class FighterDetailsView extends View {
   constructor(fighter, fightersMap) {
@@ -36,7 +37,7 @@ class FighterDetailsView extends View {
     FighterDetailsView.backgroundOverlay.style.display = "none";
   }
 
-  updateFighterClickHandler() {
+  async updateFighterClickHandler() {
     const health = this.element.querySelector(".health-input").value;
     const attack = this.element.querySelector(".attack-input").value;
     const defense = this.element.querySelector(".defense-input").value;
@@ -48,6 +49,11 @@ class FighterDetailsView extends View {
       defense
     };
     this.fightersMap.set(this.fighter._id, this.fighter);
+    const result = await fightersService.updateFighterDetailsOnServer(
+      this.fighter._id,
+      this.fighter
+    );
+    console.log("Updated fighter on server", result);
     this.closeModal();
   }
 

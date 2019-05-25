@@ -5,5 +5,6 @@ export default {
   DRAW: "Draw",
   NEXT_ROUND: "Next Round",
   UPDATE: "Update",
-  API_URL: "http://fighters-api-server.herokuapp.com/"
+  API_URL: "http://fighters-api-server.herokuapp.com/",
+  LOCAL_API_URL: "http://localhost:3000/"
 };

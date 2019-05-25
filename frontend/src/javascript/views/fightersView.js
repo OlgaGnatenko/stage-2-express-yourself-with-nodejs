@@ -38,7 +38,7 @@ class FightersView extends View {
     const selectedFighter = this.fightersDetailsMap.get(fighter._id);
     try {
       if (!selectedFighter) {
-        await fightersService.updateFighterDetails(
+        await fightersService.updateFighterDetailsInMap(
           fighter._id,
           this.fightersDetailsMap
         );

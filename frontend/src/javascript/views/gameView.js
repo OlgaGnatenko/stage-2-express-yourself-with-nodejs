@@ -78,7 +78,7 @@ class GameView extends View {
 
       for (const _id of _ids) {
         if (!fightersDetailsMap.get(_id)) {
-          await fightersService.updateFighterDetails(_id, fightersDetailsMap);
+          await fightersService.updateFighterDetailsInMap(_id, fightersDetailsMap);
         }
       }
 

@@ -3,11 +3,16 @@
 
 import APP_CONSTANTS from "./constants";
 
-function callApi(endpoint, method) {
+function callApi(endpoint, method, body) {
   const url = APP_CONSTANTS.API_URL + endpoint;
+  const headers = new Headers();
+  headers.set("Content-type", "application/json");
 
   const options = {
-    method
+    method,
+    body,
+    headers,
+    mode: "cors"
   };
 
   return fetch(url, options)

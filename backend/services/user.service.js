@@ -49,10 +49,10 @@ const updateUser = (_id, user) => {
   const validationResult = validateUserFields(sanitizedUser);
   if (!validationResult.ok) {
     return validationResult;
-  }  
+  }
   let ok = false;
 
-  const userIndex = users.findIndex(user => user._id === _id); 
+  const userIndex = users.findIndex(user => user._id === _id);
   if (userIndex === -1) {
     return {
       ok,
@@ -74,19 +74,19 @@ const updateUser = (_id, user) => {
 };
 
 const deleteUser = _id => {
-  const userIndex = users.findIndex(user => user._id === _id); 
+  const userIndex = users.findIndex(user => user._id === _id);
   if (userIndex === -1) {
     return {
       ok: false,
       error: `User with id=${_id} not found`
     };
-  } 
+  }
   const deletedUser = users.splice(userIndex, 1)[0];
   return {
     ok: true,
     data: deletedUser
-  }
-}
+  };
+};
 
 const isPositiveInteger = value => {
   const num = parseFloat(value);
